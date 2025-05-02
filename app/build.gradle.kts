@@ -1,6 +1,7 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
+    kotlin("kapt")
 }
 
 android {
@@ -9,7 +10,7 @@ android {
     compileSdk = 35
 
     defaultConfig {
-        applicationId = "com.example.notekeper"
+        applicationId = "com.tuapp.notekeper"
         minSdk = 34
         targetSdk = 35
         versionCode = 1
@@ -36,12 +37,14 @@ android {
     }
     buildFeatures {
         viewBinding = true
+        dataBinding = true
     }
 
 
 }
 
 dependencies {
+
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
@@ -51,4 +54,14 @@ dependencies {
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
+    implementation("de.hdodenhof:circleimageview:3.1.0")
+    implementation("androidx.room:room-runtime:2.6.1")
+    implementation("androidx.room:room-ktx:2.6.1")
+    kapt("androidx.room:room-compiler:2.6.1")
+
+    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.2")
+
+
+
+
 }

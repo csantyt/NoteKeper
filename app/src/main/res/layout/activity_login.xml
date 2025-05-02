@@ -4,48 +4,69 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#121212"
     android:padding="24dp">
 
-    <ImageView
-        android:id="@+id/userImage"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:src="@drawable/ic_user"
-    app:layout_constraintTop_toTopOf="parent"
-    app:layout_constraintBottom_toTopOf="@+id/etUsername"
-    app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintEnd_toEndOf="parent"
-    android:layout_marginBottom="32dp"/>
+    <!-- Guideline para centrar el contenido verticalmente -->
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.25" />
 
+    <!-- Imagen circular recortada -->
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/userImage"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:src="@drawable/ic_user"
+        android:layout_marginBottom="24dp"
+        app:layout_constraintTop_toBottomOf="@id/guideline"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <!-- Campo usuario -->
     <EditText
         android:id="@+id/etUsername"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:hint="Usuario"
+        android:textColorHint="#BBBBBB"
+        android:textColor="#FFFFFF"
+        android:backgroundTint="#FFFFFF"
         android:inputType="textPersonName"
-        app:layout_constraintTop_toBottomOf="@+id/userImage"
+        app:layout_constraintTop_toBottomOf="@id/userImage"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
+        app:layout_constraintEnd_toEndOf="parent" />
 
+    <!-- Campo contraseña -->
     <EditText
         android:id="@+id/etPassword"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:hint="Contraseña (4 dígitos)"
+        android:textColorHint="#BBBBBB"
+        android:textColor="#FFFFFF"
+        android:backgroundTint="#FFFFFF"
         android:inputType="numberPassword"
-        app:layout_constraintTop_toBottomOf="@+id/etUsername"
+        app:layout_constraintTop_toBottomOf="@id/etUsername"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="16dp"/>
+        android:layout_marginTop="16dp" />
 
+    <!-- Botón login estilizado -->
     <Button
         android:id="@+id/btnLogin"
-        android:layout_width="0dp"
+        android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:text="Iniciar sesión"
-        app:layout_constraintTop_toBottomOf="@+id/etPassword"
+        android:textColor="#000000"
+        android:backgroundTint="#FFD600"
+        app:layout_constraintTop_toBottomOf="@id/etPassword"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="24dp"/>
+        android:layout_marginTop="24dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
+
